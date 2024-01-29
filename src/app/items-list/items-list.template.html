@@ -1,0 +1,13 @@
+<ul>
+	<li
+		*ngFor="let item of items; index as i; last as isLast"
+		[style.color]="item === 'green' || item === 'red' || item === 'blue' ? item : null"
+	>
+		{{ item }} <button *ngIf="isLast" (click)="deleteItem(i)">x</button>
+	</li>
+</ul>
+
+<form (submit)="addItem($event, newItem.value)">
+	<input type="text" placeholder="Enter a new item" #newItem />
+	<button type="submit">Add</button>
+</form>
